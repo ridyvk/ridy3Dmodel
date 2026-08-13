@@ -1,0 +1,1 @@
+# ridy3Dmodel
