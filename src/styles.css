@@ -1,0 +1,96 @@
+:root {
+  color-scheme: light;
+  background: #f5efe3;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  overscroll-behavior: none;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(255, 253, 247, 0.98) 0 22%, rgba(246, 240, 229, 0.98) 70%),
+    #f5efe3;
+}
+
+button,
+canvas {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ridy-app {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.rabbit-stage,
+.loading-rabbit {
+  position: absolute;
+  inset: 0;
+}
+
+.rabbit-stage {
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+
+.rabbit-stage.is-ready {
+  opacity: 1;
+}
+
+.rabbit-stage canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  outline: none;
+}
+
+.loading-rabbit {
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 300ms ease, visibility 300ms step-end;
+}
+
+.loading-rabbit.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loading-rabbit img {
+  display: block;
+  width: min(42vmin, 280px);
+  height: min(42vmin, 280px);
+  border-radius: 23%;
+  object-fit: cover;
+  filter: drop-shadow(0 14px 30px rgba(91, 66, 45, 0.08));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rabbit-stage,
+  .loading-rabbit {
+    transition-duration: 0.01ms;
+  }
+}
